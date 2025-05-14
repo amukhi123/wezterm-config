@@ -12,6 +12,8 @@ config.cursor_blink_rate = 500
 
 config.animation_fps = 1
 
+config.adjust_window_size_when_changing_font_size = false
+
 config.window_background_opacity = 0.7
 
 config.window_decorations = "NONE | RESIZE"
@@ -32,8 +34,8 @@ config.keys = {
         action = wezterm.action.ReloadConfiguration
     },
     {
-        key = "-",
-        mods = "LEADER",
+        key = "_",
+        mods = "LEADER|SHIFT",
         action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
     },
     {
@@ -85,6 +87,21 @@ config.keys = {
         key = "l",
         mods = "LEADER",
         action = wezterm.action.ActivatePaneDirection "Right"
+    },
+    {
+      key = '+',
+      mods = 'LEADER|SHIFT',
+      action = wezterm.action.IncreaseFontSize,
+    },
+    {
+      key = '-',
+      mods = 'LEADER',
+      action = wezterm.action.DecreaseFontSize,
+    },
+    {
+      key = '0',
+      mods = 'LEADER',
+      action = wezterm.action.ResetFontSize,
     }
 }
 
